@@ -1,0 +1,116 @@
+10
+
+dir
+390
+https://wixet.googlecode.com/svn/trunk/web/js/locals/widget
+https://wixet.googlecode.com/svn
+
+
+
+2010-09-09T16:37:55.672482Z
+317
+maxpowel
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f1cc284e-e1c7-11de-9129-6395494df245
+
+
+
+
+
+
+0
+
+aboutMe
+dir
+
+accountActions
+dir
+
+accountBody
+dir
+
+albumList
+dir
+
+blog
+dir
+
+calendar
+dir
+
+calendarNotificator
+dir
+
+calendarOptions
+dir
+
+forumBody
+dir
+
+forumList
+dir
+
+news
+dir
+
+notifications
+dir
+
+photo
+dir
+
+photoComments
+dir
+
+photoList
+dir
+
+photoOptions
+dir
+
+photoTags
+dir
+
+privateMessages
+dir
+
+privateMessagesDirectories
+dir
+
+profileComments
+dir
+
+profileFriends
+dir
+
+profileMutualFriends
+dir
+
+profilePhotos
+dir
+
+searchBody
+dir
+
+searchOptions
+dir
+
+searchProfile
+dir
+
+servicesList
+dir
+

@@ -1,0 +1,11 @@
+{
+	"Please write the name for your new message directory":"Por favor escribe el nombre para el nuevo directorio",
+	"Directory name":"Nombre",
+	"New message directory":"Nuevo directorio",
+	"Remove":"Eliminar",
+	"Edit":"Editar",
+	"Please write the new name for the directory":"Por favor escribe el nuevo nombre para el directorio",
+	"New name":"Nuevo nombre",
+	"Confirmation":"Confirmacion",
+	"are you sure you want to remove the directory \"%\"?":"Realmente quieres eliminar el directorio \"%\"?"
+}

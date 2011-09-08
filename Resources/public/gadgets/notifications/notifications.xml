@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>                                                                                                                                                                                                                                        
+<Module>                                                                                                                                                                                                                                                                       
+    <ModulePrefs title="Notificaciones">
+        <Require feature="opensocial"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+        <script type="text/javascript" src="/bundles/wixet/gadgets/notifications/notifications.js"></script>
+        <div style="width: 230px" id="notifications">
+            
+        </div>
+        ]]>
+    </Content>
+</Module>

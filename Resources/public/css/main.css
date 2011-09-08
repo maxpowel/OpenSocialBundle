@@ -1,0 +1,232 @@
+body {
+	width: 1024px;
+	margin:0 auto;
+	/*font-size:100%;*/
+}
+
+
+* {/*Sin esto los botones del chat se ven grandes */
+	padding:0;
+}
+/*Toolbar*/
+
+/*Se usa en el login */
+.footer {
+	font-size: 60%;
+	position : absolute;
+	bottom: 5px;
+}
+/*********************/
+
+#toolbar{
+height: 35px;	
+}
+
+.comment {
+font-weight: normal;
+}
+
+.move { cursor: move; }
+.cursor {cursor: pointer;}
+.chat {
+	position: relative; 
+	float:right;
+	right: 5px;
+	z-index:999;
+}
+
+/*widgets*/
+
+	.column { width: 25%; float: left; padding-bottom: 100px; }
+	.columnCenter { width: 50%; float: left; padding-bottom: 100px; }
+	.columnCenterBig { width: 75%; float: left; padding-bottom: 100px; }
+	.portlet { margin: 0 1em 1em 0; }
+	.portlet-center { margin: 0 1em 1em 0; }
+	.portlet-header-center { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+	.portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+	.portlet-header .ui-icon { float: right; }
+	.portlet-content { padding: 0.4em; }
+	.ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important;}
+	.ui-sortable-placeholder * { visibility: hidden; }
+	
+	
+	
+	.dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+	.dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+	ul#icons {margin: 0; padding: 0;}
+	ul#icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
+	ul#icons span.ui-icon {float: left; margin: 0 4px;}
+	
+	
+	#ui-datepicker-div 
+{
+    z-index: 1005; /* must be > than popup editor (950) */
+}
+
+.ui-effects-transfer { border: 2px dotted gray; } 
+/*
+div.fileinputs {
+	position: relative;
+}
+
+div.fakefile {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+input.file {
+	position: relative;
+	text-align: right;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+}
+*/
+/* tema manila del jgrowl */
+div.jGrowl div.manilla {
+	background-color: 		#FFF1C2;
+	color: 					navy;
+}
+
+.multiselect {
+	width: 500px;
+	height: 220px;
+}
+
+/* Para las selecciones de radio */
+	.selectable .ui-selecting { background: #FECA40; }
+	.selectable .ui-selected { background: #F39814; color: white; }
+	.selectable { list-style-type: none; margin: 0; padding: 0; }
+	.selectable li { margin: 3px; padding: 1px; float: left; width: 27%; text-align: center; }
+/*    */
+
+ul.thumbs li {
+	float:left;
+	list-style:none outside none;
+	margin:20px 0px 20px 20px;
+        height: 100px;
+	padding:0;
+}
+
+.icon {
+	float:left;
+	margin-right: 0.3em;
+}
+
+.icon-right {
+	float:right;
+	margin-right: 0.3em;
+}
+
+.right-icon {
+/*	 float: right;
+	 vertical-align: top;*/
+	 position: absolute; right: .5em; top: 50%; margin-top: -8px;
+}
+
+ul.normal-list li {
+	list-style:none outside none;
+	margin:10px 10px 10px 10px;
+	padding:0;
+	
+}
+
+ul.normal-list li span {
+	vertical-align:top;
+}
+
+h3 {
+	margin:5px 0px 5px 15px;
+}
+
+.ui-widget .sub {
+		margin:5px 0px 5px 20px;
+}
+
+/* Show close icon in tabs */
+#tab { margin-top: 1em; }
+#tab li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+
+
+/* Chat css */
+.contact{
+	display:none;
+}
+
+
+/* Para el autocomplete ajax */
+.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+
+/* para la letra del hint */
+.blur {
+	color:#999999;
+	font-style:italic;
+}
+
+
+/* Selectmenu
+----------------------------------*/
+.ui-selectmenu { display: block; position:relative; height:2em; text-decoration: none; overflow:hidden;}
+.ui-selectmenu-icon { position:absolute; right:6px; margin-top:-8px; top: 50%; }
+.ui-selectmenu-menu { padding:0; margin:0; list-style:none; position:absolute; top: 0; visibility: hidden; overflow: auto; }
+.ui-selectmenu-open { visibility: visible; }
+.ui-selectmenu-menu-popup { margin-top: -1px; }
+.ui-selectmenu-menu-dropdown { }
+.ui-selectmenu-menu li { padding:0; margin:0; display: block; border-top: 1px dotted transparent; border-bottom: 1px dotted transparent; border-right-width: 0 !important; border-left-width: 0 !important; font-weight: normal !important; }
+.ui-selectmenu-menu li a,.ui-selectmenu-status {line-height: 1.4em; display:block; padding:.3em 1em; outline:none; text-decoration:none; }
+.ui-selectmenu-menu li.ui-selectmenu-hasIcon a,
+.ui-selectmenu-hasIcon .ui-selectmenu-status { padding-left: 20px; position: relative; margin-left: 5px; }
+.ui-selectmenu-menu li .ui-icon, .ui-selectmenu-status .ui-icon { position: absolute; top: 1em; margin-top: -8px; left: 0; }
+.ui-selectmenu-status { line-height: 1.4em; }
+.ui-selectmenu-open li.ui-selectmenu-item-focus a {  }
+.ui-selectmenu-open li.ui-selectmenu-item-selected { }
+.ui-selectmenu-menu li span,.ui-selectmenu-status span { display:block; margin-bottom: .2em; }
+.ui-selectmenu-menu li .ui-selectmenu-item-header { font-weight: bold; }
+.ui-selectmenu-menu li .ui-selectmenu-item-content {  }
+.ui-selectmenu-menu li .ui-selectmenu-item-footer { opacity: .8; }
+/*for optgroups*/
+.ui-selectmenu-menu .ui-selectmenu-group { font-size: 1em; }
+.ui-selectmenu-menu .ui-selectmenu-group .ui-selectmenu-group-label { line-height: 1.4em; display:block; padding:.6em .5em 0; font-weight: bold; }
+.ui-selectmenu-menu .ui-selectmenu-group ul { margin: 0; padding: 0; }
+
+		/*demo styles*/
+
+		select { width: 200px; }
+		
+/* selectmenucontainer
+----------------------------------*/
+.ui-selectmenucontainer { display: block; position:relative; height:2em; text-decoration: none; overflow:hidden;}
+.ui-selectmenucontainer-icon { position:absolute; right:6px; margin-top:-8px; top: 50%; }
+.ui-selectmenucontainer-menu { padding:0; margin:0; list-style:none; position:absolute; top: 0; visibility: hidden; overflow: auto; }
+.ui-selectmenucontainer-open { visibility: visible; }
+.ui-selectmenucontainer-menu-popup { margin-top: -1px; }
+.ui-selectmenucontainer-menu-dropdown { }
+.ui-selectmenucontainer-menu li { padding:0; margin:0; display: block; border: 1px dotted transparent;  font-weight: normal !important; }
+.ui-selectmenucontainer-menu li a,.ui-selectmenucontainer-status {line-height: 1.4em; display:block; padding:.3em .3em; outline:none; text-decoration:none; }
+.ui-selectmenucontainer-menu li.ui-selectmenucontainer-hasIcon a,
+.ui-selectmenucontainer-hasIcon .ui-selectmenucontainer-status { padding-left: 20px; position: relative; margin-left: 5px; }
+.ui-selectmenucontainer-menu li .ui-icon, .ui-selectmenucontainer-status .ui-icon { position: absolute; top: 1em; margin-top: -8px; left: 0; }
+.ui-selectmenucontainer-status { line-height: 1.4em; }
+.ui-selectmenucontainer-open li.ui-selectmenucontainer-item-focus a {  }
+.ui-selectmenucontainer-open li.ui-selectmenucontainer-item-selected { }
+.ui-selectmenucontainer-menu li span,.ui-selectmenucontainer-status span { display:block; margin-bottom: .2em; }
+.ui-selectmenucontainer-menu li .ui-selectmenucontainer-item-header { font-weight: bold; }
+.ui-selectmenucontainer-menu li .ui-selectmenucontainer-item-content {  }
+.ui-selectmenucontainer-menu li .ui-selectmenucontainer-item-footer { opacity: .8; }
+.ui-selectmenucontainer-menu li {
+	float:left;
+	list-style:none outside none;
+	padding:0;
+}
+/*for optgroups*/
+.ui-selectmenucontainer-menu .ui-selectmenucontainer-group { font-size: 1em; }
+.ui-selectmenucontainer-menu .ui-selectmenucontainer-group .ui-selectmenucontainer-group-label { line-height: 1.4em; display:block; padding:.6em .5em 0; font-weight: bold; }
+.ui-selectmenucontainer-menu .ui-selectmenucontainer-group ul { margin: 0; padding: 0; }
+
+		/*demo styles*/
+
+		select { width: 200px; }
+

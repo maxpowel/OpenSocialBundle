@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>                                                                                                                                                                                                                                        
+<Module>                                                                                                                                                                                                                                                                       
+    <ModulePrefs title="Amigos">
+        <Require feature="opensocial"/>
+    </ModulePrefs>
+    <Content type="html">
+         <![CDATA[
+        <div style="width: 230px">
+        <table cellspacing="15">
+        <tr>
+            <td>
+                <img src="http://wixet/bundles/wixet/images/dock/opensocial.png">
+            </td>
+            <td>
+                <img src="http://wixet/bundles/wixet/images/dock/opensocial.png">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="http://wixet/bundles/wixet/images/dock/opensocial.png">
+            </td>
+            <td>
+                <img src="http://wixet/bundles/wixet/images/dock/opensocial.png">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="http://wixet/bundles/wixet/images/dock/opensocial.png">
+            </td>
+            <td>
+                <img src="http://wixet/bundles/wixet/images/dock/opensocial.png">
+            </td>
+        </tr>
+        </table>
+            
+            <div align="right"><a href="#"  class="ui-state-default ui-corner-all" style="text-decoration:none">Ver todos</a></div>
+        </div>
+        <script>
+        $(document).ready(function(){
+            gadgets.window.adjustHeight();
+        });
+        </script>
+        ]]>
+    </Content>
+</Module>

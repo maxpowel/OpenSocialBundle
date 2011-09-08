@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>                                                                                                                                                                                                                                        
+<Module>                                                                                                                                                                                                                                                                       
+    <ModulePrefs title="Eventos proximos">
+        <Require feature="opensocial"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+<link rel="stylesheet" type="text/css" media="screen" href="/bundles/wixet/css/fullcalendar.css" />
+<script type="text/javascript" src="/bundles/wixet/gadgets/nearEvents/nearEvents.js"></script>
+<div style="margin:5px">
+	<h3>Hoy</h3>
+	<ul class="normal-list" id="today">
+
+	</ul>
+
+	<h3>Ma&ntilde;ana</h3>
+	<ul class="normal-list" id="tomorrow">
+
+	</ul>
+	<h3>Pr&oacute;ximos</h3>
+	<ul class="normal-list" id="next">
+
+	</ul>
+
+</div>
+        ]]>
+    </Content>
+</Module>

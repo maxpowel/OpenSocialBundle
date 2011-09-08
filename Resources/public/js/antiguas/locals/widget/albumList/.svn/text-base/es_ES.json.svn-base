@@ -1,0 +1,21 @@
+{
+    "Please write the name for your new album":"Por favor escribe un nombre para tu nuevo album",
+    "Album name":"Nombre del album",
+    "New album":"Nuevo album",
+    "Creating album \"%\"":"Creando album \"%\"",
+    "Remove":"Eliminar",
+    "Edit":"Editar",
+    "Tagged":"Etiquetado",
+    "Album Configuration":"Configuracion del album",
+    "Album name":"Nombre del album",
+    "Access allowed":"Acceso permitido",
+    "Access denied":"Acceso denegado",
+    "Cancel":"Cancelar",
+    "Save changes":"Guardar cambios",
+    "The album name have been successfully changed":"El nombre del album se ha cambiado satisfactoriamente",
+    "The album permissions have been successfully changed":"Los permisos del album se han cambiado satisfactoriamente",
+    "Please write an album name":"Por favor escribe un nombre para el album",
+    "are you sure you want to remove the album \"%\"?":"Realmente quieres borrar el album \"%\"?",
+    "Confirmation":"Confirma",
+    "Dependency missing":"Falta dependencia"
+}

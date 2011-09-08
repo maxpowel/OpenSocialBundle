@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>                                                                                                                                                                                                                                        
+<Module>                                                                                                                                                                                                                                                                       
+    <ModulePrefs title="Actividades recientes">
+        <Require feature="opensocial"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+        <script type="text/javascript" src="/bundles/wixet/js/jquery.pager.js"></script>
+        <link type="text/css" href="/bundles/wixet/css/pager.css" rel="stylesheet" />
+<div style="width: 470px">
+                <ul id="list"></ul>
+<table align='center'><tr><td><div class='paginator'/></td> </tr></table>
+</div>
+<script>
+
+
+function paginate(page){
+                                var req = opensocial.newDataRequest();
+                                var params = {};
+                                //Just one blog entry per request
+                                params['FIRST'] = (page-1);
+                                params['MAX'] = 10;
+                                
+                                req.add(req.newFetchActivitiesRequest('OWNER',params), 'activities');
+
+
+                                req.send(function(data){
+                                    var activities = data.get('activities').getData();
+                                    var timeNow = new Date();
+                                    var timeActivity = null;
+                                    var activityList = $("#list");
+                                    activityList.html("");
+                                    
+                                    activities.each(function(activity){
+                                    console.log(activity);
+                                        var odd;
+                                        //Get activity time
+                                         var dividedTime = activity.getField(opensocial.Activity.Field.POSTED_TIME).split(" ");
+                                         var ymd = dividedTime[0].split("-");
+                                         var hms = dividedTime[1].split(":");
+                                         timeActivity = new Date(ymd[0],(ymd[1]-1),ymd[2],hms[0],hms[1],hms[2]);
+                                        
+                                        var timeDiff = Math.floor((timeNow - timeActivity)/1000);
+                                        var timeString = "";
+                                        if(timeDiff < 86400){
+                                                var number = timeDiff
+                                                var index = 0;
+                                                while(number>60){
+                                                        index++;
+                                                        number=Math.floor(number/60);
+                                                }
+                                                var timeType;
+                                                if(index == 0){
+                                                        //Seconds
+                                                        timeType = number==1?"second":"seconds";
+                                                }else if(index == 1){
+                                                        //Minutes
+                                                        timeType = number==1?"minute":"minutes";
+                                                }else
+                                                        timeType = number==1?"hour":"hours";
+                                                //timeString = $._("% % ago",[number,timeType])
+                                                timeString = "Hace "+number+" "+timeType;
+                                                
+                                        }else{
+                                                var number=Math.floor(timeDiff/86400);
+                                                var timeType = number==1?"day":"days";
+                                                //timeString = $._("More than % % ago",[number,timeType])
+                                                timeString = "Hace más de "+number+" "+timeType;
+
+                                        }
+                                                                                
+                                        //
+                                        if( (i % 2) == 0 )
+                                        {
+                                                        odd = 'class="ui-state-default ui-corner-all"';
+                                        }else odd = "";
+
+                                        activityObj=$('<li><table '+ odd +' width="100%">'+
+                                        '<tbody>'+
+                                        '       <tr>'+
+                                        '               <td valign="top" width="50px">'+
+                                        '                       <a class="ui-helper-reset" href="'+ activity.getField(opensocial.Activity.Field.URL) +'" rel="history">'+
+                                        '                               <img alt="Icon" title="Icon" src="'+ activity.getField(opensocial.Activity.Field.STREAM_FAVICON_URL) +'" class="ui-state-default ui-corner-all" border="0">'+
+                                        '                       </a>'+
+                                        '               </td>'+
+                                        '               <td valign="top"><div style="color: rgb(0, 0, 0);">'+
+                                        '                       <div> '+activity.getField(opensocial.Activity.Field.TITLE) +'</div>'+
+                                        '                       <div class="comment"> '+activity.getField(opensocial.Activity.Field.BODY) +'</div>'+
+                                        '                       <div style="font-size: 70%"> '+ timeString +' </div>'+
+                                        '               </td>'+
+                                        '       </tr>'+
+                                        '</tbody>'+
+                                        '</table></li>');
+                                        activityList.append(activityObj);
+                                    });
+                                    activityList.fadeIn("slow");
+                                    
+                                    $(".paginator").pager({pagenumber: page, pagecount: Math.ceil((activities.getTotalSize())/10), buttonClickCallback: paginate});
+                                    gadgets.window.adjustHeight();
+                                });
+}
+
+
+$(document).ready(function(){
+        paginate(1);		
+});
+</script>
+        ]]>
+    </Content>
+</Module>

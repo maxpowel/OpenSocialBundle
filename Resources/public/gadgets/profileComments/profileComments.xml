@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>                                                                                                                                                                                                                                        
+<Module>                                                                                                                                                                                                                                                                       
+    <ModulePrefs title="Comentarios">
+        <Require feature="opensocial"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+        <script type="text/javascript" src="/bundles/wixet/js/jquery.pager.js"></script>
+        <script type="text/javascript" src="/bundles/wixet/js/jquery.editor.js"></script>
+        <script type="text/javascript" src="/bundles/wixet/js/jquery.commentList.js"></script>
+        <script type="text/javascript" src="/bundles/wixet/js/jquery.hint.js"></script>
+        
+        <link type="text/css" href="/bundles/wixet/css/pager.css" rel="stylesheet" />
+<div style="width: 470px">
+<div  align="center" >
+				<div id="editor" />
+			</div>
+			<div  align="center" >
+				<div id="comments" />
+			</div>
+</div>
+<script>
+
+$(document).ready(function(){
+        //paginate(1);		
+        $("#comments").commentList({type:"profile", id:1});
+        //Get owner or viewer
+       /* var req = opensocial.newDataRequest();
+        
+        req.newFetchPersonRequest(opensocial.DataRequest.PersonId.VIEWER),"owner");
+        req.newFetchPersonRequest(opensocial.DataRequest.PersonId.VIEWER),"viewer");
+        
+        req.send(function(data){
+            var owner = data.get('owner').getData();
+            var viewver = data.get('viewer').getData();
+            if(owner.getField(opensocial.Person.Field.ID) == owner.getField(opensocial.Person.Field.ID)){
+            
+            }
+        });*/
+        
+});
+</script>
+        ]]>
+    </Content>
+</Module>

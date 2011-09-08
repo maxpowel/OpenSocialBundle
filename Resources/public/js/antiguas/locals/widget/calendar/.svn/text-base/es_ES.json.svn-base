@@ -1,0 +1,15 @@
+{
+    "New task description":"Descripcion de la nueva tarea",
+    "Change task information":"Cambiar descripcion de la tarea",
+    "Task for the day %/%/%":"Tarea para el dia %/%/%",
+    "From %/%/% to %/%/%":"Desde %/%/% hasta %/%/%",
+    "Task name":"Nombre de la tarea",
+    "New task":"Nueva tarea",
+    "Today":"Hoy",
+    "Month":"Mes",
+    "Week":"Semana",
+    "Day":"Dia",
+    "all-day":"Dia entero",
+    "Are you sure you want to remove the task \"%\"?":"¿Realmente quieres eliminar la tarea \"%\"?",
+    "Please confirm":"Por favor confirma"
+}

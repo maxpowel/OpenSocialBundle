@@ -1,0 +1,73 @@
+/* dock - top */
+.dock {
+	position: relative; 
+	text-align: center;
+	top: -23px;
+	z-index:999;
+}
+.dock-container {
+	position: absolute;
+	/*background: url(/images/dock/dock-bg2.gif);*/
+	padding-left: 20px;
+}
+a.dock-item {
+	display: block;
+	width: 40px;
+	color: #000;
+	position: absolute;
+	top: 0px;
+	text-align: center;
+	text-decoration: none;
+	font: 10px Arial, Helvetica, sans-serif;
+}
+
+A:hover.dock-item
+{
+	background: none;
+}
+
+.dock-item img {
+	border: none; 
+	margin: 0px 10px 0px; 
+	width: 100%; 
+}
+.dock-item span {
+	/*color: white;*/
+	display: none; 
+	/*padding-left: 20px;*/
+	/*background: #CC2224 url(/plantillas/wixet//images/dock/degradaocomoeldegmail.png) repeat-x;*/
+}
+
+/* dock2 - bottom */
+/*#dock2 {
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+	left: 0px;
+}
+.dock-container2 {
+	position: absolute;
+	height: 50px;
+	background: url(/images/dock/dock-bg.gif);
+	padding-left: 20px;
+}
+a.dock-item2 {
+	display: block; 
+	font: bold 12px Arial, Helvetica, sans-serif;
+	width: 40px; 
+	color: #000; 
+	bottom: 0px; 
+	position: absolute;
+	text-align: center;
+	text-decoration: none;
+}
+.dock-item2 span {
+	display: none;
+	padding-left: 20px;
+}
+.dock-item2 img {
+	border: none; 
+	margin: 5px 10px 0px; 
+	width: 100%; 
+}
+*/

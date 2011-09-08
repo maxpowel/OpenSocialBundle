@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/246/trunk/web/images/chat
+END
+tray-new-im.png
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/246/trunk/web/images/chat/tray-new-im.png
+END
+dnd.png
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/246/trunk/web/images/chat/dnd.png
+END
+tray-online.png
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/246/trunk/web/images/chat/tray-online.png
+END
+tray-offline.png
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/246/trunk/web/images/chat/tray-offline.png
+END
+away.png
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/246/trunk/web/images/chat/away.png
+END
+tray-connecting.png
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/246/trunk/web/images/chat/tray-connecting.png
+END
+offline.png
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/246/trunk/web/images/chat/offline.png
+END
+online.png
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/246/trunk/web/images/chat/online.png
+END
+tray-dnd.png
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/246/trunk/web/images/chat/tray-dnd.png
+END

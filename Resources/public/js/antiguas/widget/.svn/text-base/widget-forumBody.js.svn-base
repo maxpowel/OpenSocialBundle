@@ -1,0 +1,178 @@
+(function($) {
+	
+	$.widget.forumBody = {
+			widget: null,
+			init: function(widget) {
+				this.widget=$(widget);
+			},
+			
+			loadBoard: function(id){
+				this.widget.html("");
+				this.widget.append('<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">'+
+					'<thead>'+
+
+					'	<tr>'+
+					'		<th width="40%">Asunto</th>'+
+					'		<th width="1%">Autor</th>'+
+					'		<th width="1%">Respuestas</th>'+
+					'		<th width="1%">Vistas</th>'+
+					'		<th>Ultimo mensaje</th>'+
+					'	</tr>'+
+					'</thead>'+
+					'<tbody>'+
+					'	<tr>'+
+					'		<td colspan="5" class="dataTables_empty">Cargando</td>'+
+					'	</tr>'+
+					'</tbody>'+
+					'<tfoot>'+
+
+						'<tr>'+
+							'<th>Asunto</th>'+
+							'<th>Autor</th>'+
+							'<th>Respuestas</th>'+
+							'<th>Vistas</th>'+
+							'<th>Ultimo mensaje</th>'+
+
+				'		</tr>'+
+				'	</tfoot>'+
+
+				'</table>');
+				
+				var dataTable = $('#example');
+				var oTable;
+				oTable = dataTable.dataTable( {
+					"fnServerData": function ( sSource, aoData, fnCallback ) {
+						$.getJSON( sSource, aoData, function (json) { 
+			                /* Do whatever additional processing you want on the callback, then tell DataTables */
+			                fnCallback(json);
+				            	dataTable.find('tbody').find('tr').each( function () {
+				            		$(this).prepend($('<td><img class="dtIcon" src="/images/dataTable/details_open.png"></td>').addClass("center"));
+				            		//this.insertBefore(  nCloneTd.cloneNode( true ), this.childNodes[0] );
+				            	} );
+				            	
+				            	dataTable.find('.dtIcon').each( function (i,element) {
+									$(this).click( function () {
+										var nTr = this.parentNode.parentNode;
+										var id = json.idList[i];
+										if ( this.src.match('details_close') )
+										{
+											// This row is already open - close it 
+											this.src = "/images/dataTable/details_open.png";
+											oTable.fnClose( nTr );
+										}
+										else
+										{
+											// Open this row
+											this.src = "/images/dataTable/details_close.png";
+											oTable.fnOpen( nTr, fnFormatDetails(id), 'ui-widget ui-widget-content ui-corner-all' );
+											//var aData = oTable.fnGetData( nTr );
+											if(detailsLoaded.indexOf(id) == -1)
+											{		//
+												var container = $("#details-"+id);
+												container.parent().attr("colspan",6);
+												var content = $("<div>");
+												var message = $("<table width='100%'><tr valign='top'><td width='5%' class='author'></td><td class='message'></td></tr></table>");
+												message.find(".message").append("<div sytle='position:float'><i>El día 5 de mayo de 1989 a las 19:32 Pepito escribió</i></div>");
+												message.find(".author").append('<img src="core.php/photo/thumbnail/id//type/mini" style="float: left;" class="ui-state-default ui-corner-all">');
+												
+												message.find(".message").append("Hola a todos. Como van las naves?? Cuando atacamos?");
+												content.append(message);
+												
+												content.append("<hr class='ui-state-default ui-corner-all'/>");
+												
+												message = $("<table width='100%'><tr valign='top'><td width='5%' class='author'></td><td class='message'></td></tr></table>");
+												message.find(".message").append("<div sytle='position:float'><i>El día 5 de mayo de 1989 a las 19:33 Otro escribió</i></div>");
+												message.find(".author").append('<img src="core.php/photo/thumbnail/id//type/mini" style="float: left;" class="ui-state-default ui-corner-all">');
+												
+												message.find(".message").append("Te digo mis naves:<br>20 cruceros<br>10000000 de naves de batalla<br>3 cazas ligeros<br>10 Estrellas de la muerte");
+												content.append(message);
+												
+												content.append("<hr class='ui-state-default ui-corner-all' />");
+												
+												message = $("<table width='100%'><tr valign='top'><td width='5%' class='author'></td><td class='message'></td></tr></table>");
+												message.find(".message").append("<div sytle='position:float'><i>El día 5 de mayo de 1989 a las 19:34 Pepito escribió</i></div>");
+												message.find(".author").append('<img src="core.php/photo/thumbnail/id//type/mini" style="float: left;" class="ui-state-default ui-corner-all">');
+												
+												message.find(".message").append("Alaaaa, como tienes tantas naves de batalla?");
+												content.append(message);
+														
+												detailsList.push(content);
+												container.html(content);
+												
+											
+										}else{
+											$("#details-"+id).html(detailsList[detailsLoaded.indexOf(id)]);
+										}
+										
+									}
+								} );
+							} );
+			            } );
+						
+					},
+					"bProcessing": true,
+					"bServerSide": true,
+					"sAjaxSource": "/core/forum/getTopics",
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sUrl": "/js/locals/dataTable-"+$._.getLocale()+".js"}
+				} );
+
+
+				
+				var detailsLoaded= new Array();
+				var detailsList= new Array();
+
+				function fnFormatDetails ( id )
+				{
+					//var aData = oTable.fnGetData( nTr );
+					
+					var sOut = '<div id="details-'+id+'">';
+					sOut += '<img src="/images/progress.gif" /></div>';
+
+					return sOut;
+				}
+
+				dataTable.find('thead').find('tr').each( function () {
+					$(this).prepend($("<th width='1%'class=\"ui-state-default\">"));
+					
+					//this.insertBefore( nCloneTh, this.childNodes[0] );
+				} );
+
+				dataTable.find('tfoot').find('tr').each( function () {
+					$(this).prepend($("<th width='1%'>"));
+					$(this).find("th").addClass("ui-state-default");
+					//this.insertBefore( nCloneTh, this.childNodes[0] );
+				} );
+
+			},
+			forumList: function(){
+				this.widget.html("");
+				this.widget.append('<h3>Foro 1</h3>'+
+				 '<table style="padding-left:2em" width="100%">'+
+				 '<tr class="ui-widget-content ui-corner-all">'+
+				 '	<td width="70%"><img src="/images/chat/tray-new-im.png" /><a href="#forum/board/id/5">Board 1</a></td>'+
+				 '	<td width="10%" align="center">67 mensajes<br>21 temas</td>'+
+				 '	<td>Ultimo mensaje por XXXX en XXX a las 13:343</td>'+
+				 '</tr>'+
+
+				 '<tr>'+
+				 '	<td><img src="/images/chat/tray-new-im.png" /> Board 2</td>'+
+				 '	<td>67 mensajes<br>21 temas</td>'+
+				 '	<td>Ultimo mensaje por XXXX en XXX a las 13:343</td>'+
+				 '</tr></table>');
+				this.widget.append("<hr class='ui-widget ui-widget-content'/>");
+				this.widget.append('<h3>Foro 2</h3>'+
+						 '<table style="padding-left:2em" width="100%">'+
+						 '<tr class="ui-widget-content ui-corner-all">'+
+						 '	<td width="70%"><img src="/images/chat/tray-new-im.png" /> Board 3</td>'+
+						 '	<td width="10%" align="center">67 mensajes<br>21 temas</td>'+
+						 '	<td>Ultimo mensaje por XXXX en XXX a las 13:343</td>'+
+						 '</tr>'+
+
+						 '</table>');
+			}
+	}
+	
+})(jQuery);

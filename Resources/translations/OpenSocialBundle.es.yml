@@ -1,0 +1,18 @@
+login.error: "El usuario o la contraseña es incorrecta"
+resetting.request.title: "Recuperar mi contraseña"
+resetting.request.description: "¿Has olvidado tu contraseña? No te preocupes, nosotros te ayudamos. Para inciar el proceso de obtención de una nueva contraseña simplemente completa el siguiente formulario escribiendo tu correo eléctronico o tu nombre de usuario"
+
+register.title: "Crearme una cuenta"
+register.confirmTitle: "Sólo un paso más"
+
+header.start: "Inicio"
+header.account: "Cuenta"
+header.search: "Buscar" 
+header.photos: "Photos"
+header.agenda: "Agenda"
+header.messages: "Messages"
+header.photoUpload: "Subir fotos"
+header.gadgets: "Gadgets"
+header.account: "Cuenta"
+header.exit: "Salir" 
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>                                                                                                                                                                                                                                        
+<Module>                                                                                                                                                                                                                                                                       
+    <ModulePrefs title="Sobre mi">
+        <Require feature="opensocial"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+        <div style="width: 230px">
+            <div><img src="http://wixet/bundles/wixet/images/dock/opensocial.png"></div>
+            <br>
+            <div class="ui-widget ui-widget-content ui-corner-all">
+                <h3>Datos Personales</h3>
+                <div class="sub">
+                    <div>Fuckencio Perez</div>
+                    <div>90 años</div>
+                    <div>Fucken City</div>
+                </div>
+            </div>
+            <br>
+            <div class="ui-widget ui-widget-content ui-corner-all">
+                <h3>Mis lugares</h3>
+                <div class="sub">
+                    <div>Fuckencio Perez</div>
+                    <div>90 años</div>
+                    <div>Fucken City</div>
+                </div>
+            </div>
+            <br>
+            <div class="ui-widget ui-widget-content ui-corner-all">
+                <h3>Mis intereses</h3>
+                <div class="sub">
+                    <div>Fuckencio Perez</div>
+                    <div>90 años</div>
+                    <div>Fucken City</div>
+                </div>
+            </div>
+            
+        </div>
+        ]]>
+    </Content>
+</Module>

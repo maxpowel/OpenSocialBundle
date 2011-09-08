@@ -1,0 +1,87 @@
+        <div id="toolbar" class="ui-widget-header ui-corner-all ui-helper-clearfix">
+
+<span id="buttons">
+		<input type="radio" id="but-start" name="buttons" checked="checked" /><label style="top: 3px; left:5px" for="but-start">{{ 'header.start'|trans({}, 'OpenSocialBundle') }}</label>
+
+		<input type="radio" id="but-profile" name="buttons" /><label style="top: 3px;" for="but-profile">{{ 'header.account'|trans({}, 'OpenSocialBundle') }}</label>
+		<input type="radio" id="but-search" name="buttons" /><label style="top: 3px; left:-5px" for="but-search">{{ 'header.search'|trans({}, 'OpenSocialBundle') }}</label>
+	</span>
+		
+	<input class="text ui-widget-content ui-corner-all" type="text" />
+	<div class="chat" id="chat"></div>
+
+			
+	<div class="dock" id="dock">
+		<div class="dock-container">
+
+		  <a class="dock-item" rel="history" href="#album">
+		  {% image '@OpenSocialBundle/Resources/public/images/dock/photo.png'
+				output='images/photo.png'
+				%}
+				<img class="ui-state-default ui-corner-all" src="{{ asset_url }}" alt="{{ 'header.photos'|trans({}, 'OpenSocialBundle') }}" />
+		  {% endimage %}
+		  <span>{{ 'header.Photos'|trans({}, 'OpenSocialBundle') }}</span></a>
+		  
+		  <a class="dock-item" rel="history" href="#calendar">
+		  {% image '@OpenSocialBundle/Resources/public/images/dock/calendar.png'
+				output='images/calendar.png'
+				%}
+				<img class="ui-state-default ui-corner-all" src="{{ asset_url }}" alt="{{ 'header.agenda'|trans({}, 'OpenSocialBundle') }}" />
+		  {% endimage %}
+		  <span>{{ 'header.Agenda'|trans({}, 'OpenSocialBundle') }}</span></a>
+ 
+		  <a class="dock-item" rel="history" href="#privateMessage">
+		  {% image '@OpenSocialBundle/Resources/public/images/dock/message.png'
+				output='images/message.png'
+				%}
+				<img class="ui-state-default ui-corner-all" src="{{ asset_url }}" alt="{{ 'header.messages'|trans({}, 'OpenSocialBundle') }}" />
+		  {% endimage %}
+		  <span>{{ 'header.Messages'|trans({}, 'OpenSocialBundle') }}</span></a>
+		  
+		  <a class="dock-item" href="javascript:void(0)" onclick="$.wixet.uploadPhotoDialog()">
+		  {% image '@OpenSocialBundle/Resources/public/images/dock/photo-upload.png'
+				output='images/photo-upload.png'
+				%}
+				<img class="ui-state-default ui-corner-all" src="{{ asset_url }}" alt="{{ 'header.photo upload'|trans({}, 'OpenSocialBundle') }}" />
+		  {% endimage %}
+		  <span>Photo upload</span></a>
+		  
+		  <a class="dock-item" rel="history" href="#gadgets">
+		  {% image '@OpenSocialBundle/Resources/public/images/dock/opensocial.png'
+				output='images/opensocial.png'
+				%}
+				<img class="ui-state-default ui-corner-all" src="{{ asset_url }}" alt="{{ 'header.gadgets'|trans({}, 'OpenSocialBundle') }}" />
+		  {% endimage %}
+		  <span>{{ 'header.Gadgets'|trans({}, 'OpenSocialBundle') }}</span></a>
+		  
+		  <a class="dock-item" rel="history" href="#settings">
+		  {% image '@OpenSocialBundle/Resources/public/images/dock/profile.png'
+				output='images/profile.png'
+				%}
+				<img class="ui-state-default ui-corner-all" src="{{ asset_url }}" alt="{{ 'header.account'|trans({}, 'OpenSocialBundle') }}" />
+		  {% endimage %}
+		  <span>{{ 'header.Account'|trans({}, 'OpenSocialBundle') }}</span></a>
+		  
+		  <a class="dock-item" id="dock-exit" href="/logout">
+		  {% image '@OpenSocialBundle/Resources/public/images/dock/exit.png'
+				output='images/exit.png'
+				%}
+				<img class="ui-state-default ui-corner-all" src="{{ asset_url }}" alt="{{ 'header.exit'|trans({}, 'OpenSocialBundle') }}" />
+		  {% endimage %}
+		  <span>{{ 'header.Exit'|trans({}, 'OpenSocialBundle') }}</span></a>
+		</div>
+
+	</div>
+
+<div style="float:right">
+</div>
+
+
+</div>
+
+<br />
+
+
+
+
+

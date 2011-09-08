@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>                                                                                                                                                                                                                                        
+<Module>                                                                                                                                                                                                                                                                       
+    <ModulePrefs title="Blog">
+        <Require feature="opensocial"/>
+        <Require feature="settitle"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
+        <script type="text/javascript" src="/bundles/wixet/js/jquery.pager.js"></script>
+        <script type="text/javascript" src="http://jair.lab.fi.uva.es/~alvagar/js/ckeditor/ckeditor.js"></script>
+        <link type="text/css" href="/bundles/wixet/css/pager.css" rel="stylesheet" />
+<div style="width: 470px">
+                <div id="blog-content">
+                    <span id="blog-delete" style="float:right; cursor:pointer" title="Eliminar" class="ui-icon ui-icon-trash"></span>
+                    <span id="blog-update" style="float:right; cursor:pointer" title="Modificar" class="ui-icon ui-icon-pencil"></span>
+
+                    <span id="blog-new" style="float:right; cursor:pointer" title="Crear" class="ui-icon ui-icon-document"></span>
+
+            <div id="blog-text"></div>
+            <!-- <div><a id="blog-readMore" href="javascript:void(0)">Leer m&aacute;s</a></div> -->
+            <table align='center'><tr><td><div class='paginator'/></td> </tr></table>
+    </div>
+
+    <div id="blog-editor" style="display:none">
+            <div>Titulo <input type="text" id="title" class="ui-widget-content ui-corner-all"></div>
+
+            <br>
+            <div><textarea class="ckeditor" name="blogContent"></textarea></div>
+            <div><button id="blog-save">Guardar</button><button id="blog-cancel">Cancelar</button></div>
+    </div>
+
+
+ 
+    <input type="hidden" id="blogId" />
+</div>
+
+<script>
+
+
+function paginate(page){
+                                var req = opensocial.newDataRequest();
+                                var params = {};
+                                //Just one blog entry per request
+                                params['FIRST'] = (page-1);
+                                params['MAX'] = 1;
+                                
+                                req.add(req.newFetchBlogRequest('OWNER',params), 'blogs');
+
+
+                                req.send(function(data){
+                                    var blogs = data.get('blogs').getData();
+                                    var blogArray = blogs.asArray();
+                                    if(blogArray.length > 0){
+                                        $("#blog-text").html(blogArray[0].getContent());
+                                        fullHtml = blogArray[0].getContent();
+                                        $.gadgets.window.setTitle(blogArray[0].getTitle());
+                                        blogTitle = blogArray[0].getTitle();
+                                        $("#blogId").val(blogArray[0].getId());
+                                    }else{
+                                        $("#blog-text").html("No tienes ninguna entrada de blog");
+                                        $.gadgets.window.setTitle("Blog vacío");
+                                    }
+                                    $(".paginator").pager({pagenumber: page, pagecount: Math.ceil((blogs.getTotalSize())), buttonClickCallback: paginate});
+                                    gadgets.window.adjustHeight();
+                                });
+}
+
+var fullHtml = "";
+var blogTitle = "";
+var update = false;
+$(document).ready(function(){
+        paginate(1);
+        
+	gadgets.window.adjustHeight();
+        
+	
+	/*$("#blog-readMore").click(function(){
+		$("#blog-text").html(fullHtml);
+		$(this).remove();
+                gadgets.window.adjustHeight();
+	});*/
+	
+	$("#blog-new").click(function(){
+                update = false;
+		CKEDITOR.instances.blogContent.setData();
+                $("#title").val(blogTitle);
+		$("#blog-editor").show();
+		$("#blog-content").hide();
+                gadgets.window.adjustHeight();
+	});
+	
+	$("#blog-update").click(function(){
+                update = true;
+		CKEDITOR.instances.blogContent.setData(fullHtml);
+                $("#title").val(blogTitle);
+		$("#blog-editor").show();
+		$("#blog-content").hide();
+                gadgets.window.adjustHeight();
+	});
+	
+        $("#blog-delete").click(function(){
+                $.jsonRPC.request('blog.remove', {id:$("#blogId").val()}, {
+                      success: function(result) {
+                        $("#title").val("");
+                        $.gadgets.wixet.notice("Blog eliminado");
+                        paginate(1);
+                      },
+                      error: function(result) {
+                        $.gadgets.wixet.notice("Error al eliminar blog");
+                      }
+                    });
+	});
+        
+	$("#blog-save").button().click(function(){
+		$("#blog-content").show();
+		$("#blog-editor").hide();
+                if(update){
+                    $.jsonRPC.request('blog.update', {id:$("#blogId").val(), title: $("#title").val(), content: CKEDITOR.instances.blogContent.getData()}, {
+                      success: function(result) {
+                        $("#title").val("");
+                        $.gadgets.wixet.notice("Blog editado");
+                        paginate(1);
+                      },
+                      error: function(result) {
+                        $.gadgets.wixet.notice("Error al editar blog");
+                      }
+                    });
+                }else{
+                    $.jsonRPC.request('blog.create', {title: $("#title").val(), content: CKEDITOR.instances.blogContent.getData()}, {
+                      success: function(result) {
+                        $("#title").val("");
+                        $.gadgets.wixet.notice("Blog creado");
+                        paginate(1);
+                      },
+                      error: function(result) {
+                        $.gadgets.wixet.notice("Error al crear blog");
+                      }
+                    });
+                }
+                
+	});
+	
+	$("#blog-cancel").button().click(function(){
+                $("#title").val("");
+		$("#blog-content").show();
+		$("#blog-editor").hide();
+                gadgets.window.adjustHeight();
+	});
+
+
+		
+});
+</script>
+        ]]>
+    </Content>
+</Module>

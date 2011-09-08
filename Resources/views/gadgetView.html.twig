@@ -1,0 +1,44 @@
+{% extends "OpenSocialBundle::layout.html.twig" %}
+
+
+{% block body_content %}
+
+{% include "OpenSocialBundle::header.html.twig" %}
+
+<div class="column portletColumn" id="columnLeft">
+
+	{% for gadget in left %}
+		<div class="widget portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" id="widget-{{ gadget.id }}">
+			<div class="portlet-header ui-widget-header ui-corner-all move">
+				<div class="title"></div>
+			</div>
+			<iframe id="iframe-{{ gadget.id }}" name="iframe-{{ gadget.id }}" scrolling="no" frameborder="0" style="border: 0pt none; padding: 0pt; margin: 0pt; width: 100%; overflow: hidden;" src="/app_dev.php/gadget?url={{ gadget.url }}&section={{ section }}"></iframe>
+		</div>
+	{% endfor %}
+
+</div>
+
+<div class="columnCenter portletColumn" id="columnCenter">
+	{% for gadget in center %}
+		<div class="widget portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" id="widget-{{ gadget.id }}">
+			<div class="portlet-header ui-widget-header ui-corner-all move">
+				<div class="title"></div>
+			</div>
+			<iframe id="iframe-{{ gadget.id }}" name="iframe-{{ gadget.id }}" scrolling="no" frameborder="0" style="border: 0pt none; padding: 0pt; margin: 0pt; width: 100%; overflow: hidden;" src="/gadget?url={{ gadget.url }}&section={{ section }}"></iframe>
+		</div>
+	{% endfor %}
+
+</div>
+
+<div class="column portletColumn" id="columnRight">
+	{% for gadget in right %}
+		<div class="widget portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" id="widget-{{ gadget.id }}">
+			<div class="portlet-header ui-widget-header ui-corner-all move">
+				<div class="title"></div>
+			</div>
+			<iframe id="iframe-{{ gadget.id }}" name="iframe-{{ gadget.id }}" scrolling="no" frameborder="0" style="border: 0pt none; padding: 0pt; margin: 0pt; width: 100%; overflow: hidden;" src="/gadget?url={{ gadget.url }}&section={{ section }}"></iframe>
+		</div>
+	{% endfor %}
+</div>
+
+{% endblock %}

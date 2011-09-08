@@ -1,0 +1,22 @@
+$.i18n.en_US = {
+   date : 'dd of FF of yyyy',
+   datetime: 'dd of FF, HH:mm',
+   numeralBase : 2406,
+   numeralPrefix:"u0",
+   month : new Array('January','February','March','April','May','June','July','August','September','October','November','December')
+
+   shortDate: 'mm-dd-yy',
+   day: new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'),
+   firstDay: 0,
+   /*0 - Sunday, 1 - Monday...*/
+   strings : {}
+   /*
+    * additional values that could be added
+    * 
+    * monetary format
+    * non-monetary numeric format
+    * date format
+    * time format
+    * yes, no  for yes, no questions
+    */
+};

@@ -1,0 +1,9 @@
+{
+    "Are you sure you want to remove the blog \"%\"?":"Realmente quieres eliminar el blog \"%\"?",
+    "Remove blog":"Eliminar blog",
+    "New blog entry":"Nueva entrada del blog",
+    "Blog entry title":"Titulo",
+    "Error while creating blog entry":"Error al crear la entrada del blog",
+    "Cancel":"Cancelar",
+    "Create":"Crear"
+}
